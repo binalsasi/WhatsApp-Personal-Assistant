@@ -1,0 +1,38 @@
+{
+
+  "description": "WhatsApp Personal Assistant with reminder and auto reply capabilities.",
+  "manifest_version": 2,
+  "name": "WhatsApp Personal Assistant",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/whatsapp.png",
+    "theme_icons": [{
+        "light": "icons/whatsapp.png",
+        "dark": "icons/whatsapp.png",
+        "size": 32
+    }],
+    "default_title": "WhatsAppPersonalAssistant",
+    "default_popup": "popup/choose_beast.html"
+  },
+
+
+  "content_scripts": [
+    {
+      "matches": ["*://web.whatsapp.com/*"],
+      "js": ["assets/js/jquery-3.3.1.min.js", "borderify.js", "analysis.js", "popup/choose_beast.js"]
+    }
+  ],
+    "permissions": [
+        "activeTab",   
+        "webNavigation",
+        "webRequest",
+        "tabs",
+        "*://localhost/*",
+        "http://localhost/makeaton/runpy.php"
+    ]
+
+}
